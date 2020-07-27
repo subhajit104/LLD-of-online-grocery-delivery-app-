@@ -1,7 +1,7 @@
 
-##Design an Online Grocery Shopping System(Bigbasket)
+## Design an Online Grocery Shopping System(Bigbasket)
 
-#Requirements : 
+# Requirements : 
             
             1. user must have registered account.
             2. User must see the list of groceries.
