@@ -1,5 +1,4 @@
 package Util;
-
 import models.Address;
 import models.Cart;
 import models.GroceryModel.Grocery;
@@ -14,16 +13,16 @@ import java.util.Map;
 
 public class GroceryManagementSystem {
 
-    List<User> userList;
-    Map<Long,User> userMap;
-    List<Admin> adminList;
-    Map<Long,Admin> adminMap;
-    List<Grocery> groceryList;
-    Map<Long,Grocery> groceryMap;
-    List<Cart> cartList;
-    Map<Long,Cart> cartMap;
-    List<OrderHistory> orderHistoryList;
-    Map<Long,OrderHistory> orderHistoryMap;
+   private List<User> userList;
+   private Map<Long,User> userMap;
+   private List<Admin> adminList;
+   private Map<Long,Admin> adminMap;
+   private List<Grocery> groceryList;
+   private Map<Long,Grocery> groceryMap;
+   private List<Cart> cartList;
+   private Map<Long,Cart> cartMap;
+   private List<OrderHistory> orderHistoryList;
+   private Map<Long,OrderHistory> orderHistoryMap;
 
 
     public GroceryManagementSystem() {
@@ -42,25 +41,41 @@ public class GroceryManagementSystem {
     }
 
 
-    public void addUser(User user)
+    private boolean verifyUser( User user)
     {
-        userList.add(user);
+        return false;
     }
 
+
+    public void addUser(User user)
+    {
+
+        // TODO: verify user before insert into db.
+        userList.add(user);
+        userMap.put(user.getUserId(),user);
+
+    }
+
+    private boolean verifyAdmin( Admin admin)
+    {
+        return false;
+    }
     public void addOwner(Admin admin)
     {
         adminList.add(admin);
+        adminMap.put(admin.getUserId(),admin);
     }
 
     public Grocery addGrocery(Grocery grocery)
     {
         groceryList.add(grocery);
+        groceryMap.put(grocery.getId(),grocery);
         return grocery;
     }
 
     public Grocery searchById(int id)
     {
-        return null;
+       return groceryMap.get(id);
     }
 
 // -------------------------------------------------------
