@@ -1,5 +1,7 @@
 package models.UserModel;
 
+import models.UI;
+
 public class Person {
 
     private long userId;
@@ -12,6 +14,7 @@ public class Person {
     }
 
     public Person(String name, String password, String mail) {
+        this.userId = UI.uniqueId++;
         this.name = name;
         this.password = password;
         this.mail = mail;

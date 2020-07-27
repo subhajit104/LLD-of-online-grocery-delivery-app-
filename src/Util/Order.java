@@ -2,7 +2,7 @@ package Util;
 
 import models.Address;
 import models.GroceryModel.Grocery;
-import models.Reciept;
+import models.Receipt;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,7 +12,6 @@ public class Order {
 
     private long id;
     private Address address;
-    private Reciept reciept;
     private List<Long> groceryList;
     private Date date;
     private Boolean isCanceled;
@@ -23,6 +22,7 @@ public class Order {
 
     public void addGrocery(final Grocery grocery)
     {
+          groceryList.add(grocery.getId());
 
     }
 
@@ -40,14 +40,6 @@ public class Order {
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public Reciept getReciept() {
-        return reciept;
-    }
-
-    public void setReciept(Reciept reciept) {
-        this.reciept = reciept;
     }
 
     public List<Long> getGroceryList() {

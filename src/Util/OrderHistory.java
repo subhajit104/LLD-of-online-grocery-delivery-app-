@@ -7,7 +7,7 @@ public class OrderHistory {
     private long userId;
     private List<Long> orderList;
 
-    public void addOrder(final Order order)
+    public void addOrder(Order order)
     {
         orderList.add(order.getId());
     }

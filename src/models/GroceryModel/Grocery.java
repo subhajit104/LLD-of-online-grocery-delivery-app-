@@ -7,11 +7,13 @@ public class Grocery {
     private String name;
     private String description ;
     private  float price;
+    private String amount;
 
-    public Grocery(long id, String name, String description) {
+    public Grocery(long id, String name, String description,String amount) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.amount = amount;
     }
 
     public long getId() {
@@ -38,11 +40,30 @@ public class Grocery {
         this.description = description;
     }
 
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
     public float getPrice() {
         return price;
     }
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Grocery{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", amount='" + amount + '\'' +
+                '}';
     }
 }
