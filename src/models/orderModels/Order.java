@@ -1,8 +1,8 @@
-package Util;
+package models.orderModels;
 
-import models.Address;
+import Util.Address;
 import models.GroceryModel.Grocery;
-import models.Receipt;
+import userInterface.UI;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,6 +17,7 @@ public class Order {
     private Boolean isCanceled;
 
     public Order() {
+        this.id = UI.uniqueId++;
         this.groceryList = new ArrayList<>();
     }
 

@@ -1,4 +1,6 @@
-package Util;
+package models.orderModels;
+
+import models.orderModels.Order;
 
 import java.util.Set;
 

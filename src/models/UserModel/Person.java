@@ -1,6 +1,6 @@
 package models.UserModel;
 
-import models.UI;
+import userInterface.UI;
 
 public class Person {
 

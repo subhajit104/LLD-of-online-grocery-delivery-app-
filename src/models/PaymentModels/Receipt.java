@@ -1,6 +1,6 @@
-package models;
+package models.PaymentModels;
 
-import Util.Order;
+import models.orderModels.Order;
 
 public class Receipt {
 

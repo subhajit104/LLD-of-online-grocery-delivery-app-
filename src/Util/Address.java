@@ -1,4 +1,4 @@
-package models;
+package Util;
 
 public class Address {
 

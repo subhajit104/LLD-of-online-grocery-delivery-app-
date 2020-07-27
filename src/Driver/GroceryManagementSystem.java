@@ -1,8 +1,12 @@
-package Util;
-import models.Address;
-import models.Cart;
+package Driver;
+
+import Util.Address;
+import models.PaymentModels.GroceryWallet;
+import models.PaymentModels.Receipt;
+import models.orderModels.Cart;
+import models.orderModels.Order;
+import models.orderModels.OrderHistory;
 import models.GroceryModel.Grocery;
-import models.Receipt;
 import models.UserModel.Admin;
 import models.UserModel.User;
 
@@ -15,31 +19,47 @@ public class GroceryManagementSystem {
 
    private List<User> userList;
    private Map<Long,User> userMap;
+
    private List<Admin> adminList;
    private Map<Long,Admin> adminMap;
+
    private List<Grocery> groceryList;
    private Map<Long,Grocery> groceryMap;
+
    private List<Cart> cartList;
    private Map<Long,Cart> cartMap;
+
     private List<Cart> oderList;
-    private Map<Long,Order> orderMap;
+    private Map<Long, Order> orderMap;
+
    private List<OrderHistory> orderHistoryList;
    private Map<Long,OrderHistory> orderHistoryMap;
+
+   private List<GroceryWallet> walletList;
+   private Map<Long,GroceryWallet> groceryWalletMap;
+
 
 
     public GroceryManagementSystem() {
 
         userList = new ArrayList<>();
         adminList = new ArrayList<>();
+
         groceryList = new ArrayList<>();
         cartList = new ArrayList<>();
+
         orderHistoryList = new ArrayList<>();
+        orderHistoryMap = new HashMap<>();
 
         userMap = new HashMap<>();
         adminMap = new HashMap<>();
+
         groceryMap = new HashMap<>();
         cartMap = new HashMap<>();
-        orderHistoryMap = new HashMap<>();
+
+        walletList = new ArrayList<>();
+        groceryWalletMap = new HashMap<>();
+
     }
 
 
@@ -56,6 +76,30 @@ public class GroceryManagementSystem {
         userList.add(user);
         userMap.put(user.getUserId(),user);
 
+        // TODO: Create cart
+        Cart newCart = new Cart();
+
+        newCart.setUserId(user.getUserId());
+        user.setCartId(newCart.getId());
+
+        cartList.add(newCart);
+        cartMap.put(newCart.getId(),newCart);
+
+        // Create PaymentWallet
+
+        GroceryWallet newGroceryWallet = new GroceryWallet();
+        newGroceryWallet.setUserId(user.getUserId());
+        user.setWallerId(newGroceryWallet.getId());
+        walletList.add(newGroceryWallet);
+        groceryWalletMap.put(newGroceryWallet.getId(),newGroceryWallet);
+
+        // create OrderHistory
+        OrderHistory orderHistory = new OrderHistory();
+        user.setOrderHistoryId(orderHistory.getId());
+        orderHistory.setUserId(user.getUserId());
+        orderHistoryMap.put(orderHistory.getId(),orderHistory);
+
+        // TODO: create wishlist.
     }
 
     private boolean verifyAdmin( Admin admin)
@@ -111,15 +155,18 @@ public class GroceryManagementSystem {
 
    //----------------------------------------------
 
-    private Order getOrderFromCart(Cart cart)
+    private Order getOrderFromCart(Cart cart, Address address)
     {
-        return null;
+        Order order = new Order();
+        order.setAddress(address);
+        order.setGroceryList(cart.getGroceries());
+        return order;
     }
     public void checkOut(Long userId, Address address)
     {
 
          Cart cart = cartMap.get(userMap.get(userId).getCartId());
-         Order order = getOrderFromCart(cart);
+         Order order = getOrderFromCart(cart,address);
          OrderHistory orderHistory = orderHistoryMap.get(userMap.get(userId).getOrderHistoryId());
          orderHistory.addOrder(order);
 
@@ -254,5 +301,21 @@ public class GroceryManagementSystem {
 
     public void setOrderHistoryMap(Map<Long, OrderHistory> orderHistoryMap) {
         this.orderHistoryMap = orderHistoryMap;
+    }
+
+    public List<GroceryWallet> getWalletList() {
+        return walletList;
+    }
+
+    public void setWalletList(List<GroceryWallet> walletList) {
+        this.walletList = walletList;
+    }
+
+    public Map<Long, GroceryWallet> getGroceryWalletMap() {
+        return groceryWalletMap;
+    }
+
+    public void setGroceryWalletMap(Map<Long, GroceryWallet> groceryWalletMap) {
+        this.groceryWalletMap = groceryWalletMap;
     }
 }

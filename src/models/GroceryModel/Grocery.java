@@ -58,12 +58,14 @@ public class Grocery {
 
     @Override
     public String toString() {
-        return "Grocery{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
+
+        return "--------------------------------\n" +
+                "  id=" + id +
+                ", name='" + name + '\n' +
+                ", description='" + description + '\n' +
                 ", price=" + price +
-                ", amount='" + amount + '\'' +
-                '}';
+                ", amount='" + amount  +
+                "\n------------------------------------";
+
     }
 }

@@ -6,6 +6,7 @@ public class User extends Person {
     private Long cartId;
     private Long OrderHistoryId;
     private Long wishListId;
+    private long wallerId;
 
     public User(String name, String password, String mail) {
         super(name, password, mail);
@@ -33,5 +34,13 @@ public class User extends Person {
 
     public void setWishListId(Long wishListId) {
         this.wishListId = wishListId;
+    }
+
+    public long getWallerId() {
+        return wallerId;
+    }
+
+    public void setWallerId(long wallerId) {
+        this.wallerId = wallerId;
     }
 }
