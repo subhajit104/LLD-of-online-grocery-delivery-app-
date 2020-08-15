@@ -8,12 +8,25 @@ public class Grocery {
     private String description ;
     private  float price;
     private String amount;
+    private boolean isAvailable;
+    private int count ;
 
-    public Grocery(long id, String name, String description,String amount) {
+    public Grocery(long id, String name, String description, String amount, int count) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.amount = amount;
+        this.isAvailable = true;
+        this.count = count;
+
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 
     public long getId() {
@@ -56,16 +69,22 @@ public class Grocery {
         this.price = price;
     }
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
     @Override
     public String toString() {
-
-        return "--------------------------------\n" +
-                "  id=" + id +
-                ", name='" + name + '\n' +
-                ", description='" + description + '\n' +
+        return "{" +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
                 ", price=" + price +
-                ", amount='" + amount  +
-                "\n------------------------------------";
-
+                ", amount='" + amount + '\'' +
+                '}';
     }
+
 }

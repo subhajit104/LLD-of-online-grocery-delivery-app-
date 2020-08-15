@@ -2,51 +2,47 @@ package models.orderModels;
 import models.GroceryModel.Grocery;
 import userInterface.UI;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+
 import java.util.stream.Collectors;
 
 public class Cart {
 
     private long id;
     private float totalAmount;
-    private Set<Long> groceries;
-    private long userId;
+    private List<Long> groceries;
 
     public Cart() {
 
         this.id = UI.uniqueId++;
-        groceries = new HashSet<>();
+        groceries = new ArrayList<>();
     }
 
     public void addGrocery(final Grocery grocery)
     {
+        System.out.println("Grocery added");
+        System.out.println("details:");
+        System.out.println(grocery.toString());
+
         groceries.add(grocery.getId());
         totalAmount += grocery.getPrice();
     }
 
     public void removeGrocery(final Grocery grocery)
     {
+
         groceries.remove(grocery.getId());
         totalAmount -= grocery.getPrice();
+
+        System.out.println("Removed Grocery");
+        System.out.println("Details");
+        System.out.println(grocery.toString());
+
     }
 
-    @Override
-    public String toString() {
-        return "Cart{" +
-                "totalAmount=" + totalAmount +
-                ", number of groceries=" + groceries.size() +
-                ", userId=" + userId +
-                '}';
-    }
-
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public List<Long> getGroceryList() {
+        return groceries.stream().collect(Collectors.toList());
     }
 
     public long getId() {
@@ -66,10 +62,20 @@ public class Cart {
     }
 
     public List<Long> getGroceries() {
-        return groceries.stream().collect(Collectors.toList());
+        return groceries;
     }
 
-    public void setGroceries(Set<Long> groceries) {
-        this.groceries = groceries;
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "totalAmount=" + totalAmount +
+                ", number of groceries=" + groceries.size() +
+
+                '}';
     }
+
+
+
+
 }

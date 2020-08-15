@@ -10,7 +10,7 @@ public class Person {
     private String mail;
 
     public Person() {
-
+           userId = UI.uniqueId++;
     }
 
     public Person(String name, String password, String mail) {

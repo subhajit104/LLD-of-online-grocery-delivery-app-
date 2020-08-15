@@ -1,6 +1,5 @@
 package models.PaymentModels;
 
-import models.orderModels.TransactionHistory;
 import userInterface.UI;
 
 import java.util.ArrayList;
@@ -11,6 +10,15 @@ public class GroceryWallet {
      private long id;
      private long userId;
      private List<TransactionHistory> transactionHistories;
+
+     public float getTotalAmount() {
+          return totalAmount;
+     }
+
+     public void setTotalAmount(float totalAmount) {
+          this.totalAmount = totalAmount;
+     }
+
      private float totalAmount;
 
      public GroceryWallet()
