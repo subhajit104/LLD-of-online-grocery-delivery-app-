@@ -85,8 +85,7 @@ public class GroceryService {
           }
     }
 
-    public boolean verifyGrocery(Grocery grocery)
-    {
+    public boolean verifyGrocery(Grocery grocery) {
        return  groceryMap.get(grocery.getId()) != null;
     }
     // ############################################################################################

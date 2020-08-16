@@ -17,6 +17,7 @@ public class Cart {
 
         this.id = UI.uniqueId++;
         groceries = new ArrayList<>();
+        totalAmount = 0;
     }
 
     public void addGrocery(final Grocery grocery)
@@ -64,14 +65,15 @@ public class Cart {
     public List<Long> getGroceries() {
         return groceries;
     }
-
+    public void clearCart(){
+        groceries.clear();
+    }
 
     @Override
     public String toString() {
         return "Cart{" +
                 "totalAmount=" + totalAmount +
                 ", number of groceries=" + groceries.size() +
-
                 '}';
     }
 

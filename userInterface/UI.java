@@ -35,11 +35,11 @@ public class UI {
     }
     private int getInput(int lowerBound, int upperBound){
         while(true){
-            System.out.println("\t");
+            System.out.print("\t");
             try {
                 int input = scanner.nextInt();
                 if (verifyInput(input,lowerBound,upperBound) == false)
-                      throw new NotValidInput("please give input in range");
+                      throw new NotValidInput("please provide a valid output");
                 return input;
             }catch (NotValidInput notValidInput) {
                 notValidInput.printStackTrace();
@@ -146,14 +146,11 @@ public class UI {
 
     public void addGrocery()
     {
-        groceryManagementSystem.addGrocery(new Fruit(uniqueId++,"Milk","Fresh milk","200ml"));
-        groceryManagementSystem.addGrocery(new Fruit(uniqueId++,"Oil","Fresh milk","200ml"));
-        groceryManagementSystem.addGrocery(new Fruit(uniqueId++,"Apple","Fresh Fruit","200gm"));
-        groceryManagementSystem.addGrocery(new Vegetable(uniqueId++,"Onion","Fresh vegetable","200gm"));
-        groceryManagementSystem.addGrocery(new Fruit(uniqueId++,"Milk","Fresh milk","200ml"));
-        groceryManagementSystem.addGrocery(new Fruit(uniqueId++,"Milk","Fresh milk","200ml"));
-        groceryManagementSystem.addGrocery(new Fruit(uniqueId++,"Milk","Fresh milk","200ml"));
-        groceryManagementSystem.addGrocery(new Fruit(uniqueId++,"Milk","Fresh milk","200ml"));
+        groceryManagementSystem.addGrocery(new Fruit(uniqueId++,"Milk","Fresh milk", 20,"200ml",5));
+        groceryManagementSystem.addGrocery(new Vegetable(uniqueId++,"Onion","Fresh vegetable",20,"200gm",5));
+        groceryManagementSystem.addGrocery(new Fruit(uniqueId++,"Cheese","Fresh Cheese", 20,"50gm",5));
+        groceryManagementSystem.addGrocery(new Vegetable(uniqueId++,"Potato","Fresh Potato",20,"200gm",5));
+
 
     }
     public void addUser()

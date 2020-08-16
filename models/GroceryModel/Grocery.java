@@ -7,15 +7,16 @@ public class Grocery {
     private String name;
     private String description ;
     private  float price;
-    private String amount;
     private boolean isAvailable;
     private int count ;
+    private String weight;
 
-    public Grocery(long id, String name, String description, String amount, int count) {
+    public Grocery(long id, String name, String description, float price, String weight, int count) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.amount = amount;
+        this.price = price;
+        this.weight = weight;
         this.isAvailable = true;
         this.count = count;
 
@@ -53,14 +54,6 @@ public class Grocery {
         this.description = description;
     }
 
-    public String getAmount() {
-        return amount;
-    }
-
-    public void setAmount(String amount) {
-        this.amount = amount;
-    }
-
     public float getPrice() {
         return price;
     }
@@ -77,14 +70,24 @@ public class Grocery {
         this.count = count;
     }
 
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
     @Override
     public String toString() {
-        return "{" +
+        return "Grocery{" +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", amount='" + amount + '\'' +
+                ", isAvailable=" + isAvailable +
+                ", count=" + count +
+                ", weight='" + weight + '\'' +
                 '}';
     }
-
 }

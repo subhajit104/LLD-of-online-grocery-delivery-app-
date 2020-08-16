@@ -21,7 +21,7 @@
   
  # Use cases: 
                           1. Seach a item
-                          2.  add,remove,update grocery
+                          2. add,remove,update grocery
                           3. add to wish list
                           4. return orders
                           5. return a particular item from the orders.

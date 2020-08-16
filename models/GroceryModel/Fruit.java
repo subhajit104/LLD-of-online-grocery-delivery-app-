@@ -2,8 +2,8 @@ package models.GroceryModel;
 
 public class Fruit extends Grocery {
 
-    public Fruit(long id, String name, String description,String amount) {
-        super(id, name, description,amount,5);
+    public Fruit(long id, String name, String description, float price, String weight, int count) {
+        super(id, name,description,price,weight,count);
     }
 
     @Override
